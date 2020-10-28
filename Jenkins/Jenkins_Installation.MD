@@ -6,20 +6,19 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
 1. EC2 Instance 
    - With Internet Access
    - Security Group with Port `8080` open for internet
-1. Java v1.8.x 
+1. Java v11.08.x
 
 ## Install Java
 1. We will be using open java for our demo, Get the latest version from http://openjdk.java.net/install/
    ```sh
-   yum install java-1.8*
-   #yum -y install java-1.8.0-openjdk-devel
+   yum install java*
    ```
 
 1. Confirm Java Version and set the java home
    ```sh
    java -version
-   find /usr/lib/jvm/java-1.8* | head -n 3
-   JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-<Java version which seen in the above output>
+   find /usr/lib/jvm/java* | head -n 3
+   JAVA_HOME=/usr/lib/jvm/
    export JAVA_HOME
    PATH=$PATH:$JAVA_HOME
     # To set it permanently update your .bash_profile
@@ -27,10 +26,10 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
    ```
    _The output should be something like this,_
     ```sh
-   [root@~]# java -version
-   openjdk version "1.8.0_151"
-   OpenJDK Runtime Environment (build 1.8.0_151-b12)
-   OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+   [ec2-user@ip-172-31-95-116 ~]$ java -version
+   openjdk version "11.0.8" 2020-07-14 LTS
+   OpenJDK Runtime Environment Corretto-11.0.8.10.1 (build 11.0.8+10-LTS)
+   OpenJDK 64-Bit Server VM Corretto-11.0.8.10.1 (build 11.0.8+10-LTS, mixed mode)
    ```
 
 ## Install Jenkins
@@ -70,11 +69,20 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
 
 ### Test Jenkins Jobs
 1. Create “new item”
-1. Enter an item name – `My-First-Project`
+1. Enter an item name – `First_Project_Hello_World`
    - Chose `Freestyle` project
 1. Under the Build section
-	Execute shell: echo "Welcome to Jenkins Demo"
+	Execute shell: echo "Hello World First Project"
 1. Save your job 
 1. Build job
 1. Check "console output"
-
+   _The output should be something like this,_
+    ```sh
+    Started by user admin
+    Running as SYSTEM
+    Building in workspace /var/lib/jenkins/workspace/First_Project_Hello_World
+    [First_Project_Hello_World] $ /bin/sh -xe /tmp/jenkins718906531632399163.sh
+    + echo 'Hello World First Project'
+    Hello World First Project
+    Finished: SUCCESS
+    ```
