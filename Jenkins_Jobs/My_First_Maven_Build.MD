@@ -9,7 +9,7 @@ We know how to use work with each and Git, Jenkins independently. What if you wa
 1. Jenkins server 
 
 
-### Steps to create "My_First_Maven_Build" Jenkin job
+### Steps to create "First_Project_Maven_Hello_World" Jenkin job
 1. Login to Jenkins console
 1. Create *Jenkins job*, Fill the following details,
    - *Source Code Management:*
