@@ -18,3 +18,8 @@ We know how to use work with each and Git, Jenkins independently. What if you wa
    - *Build:*
      - Root POM:`pom.xml`
      - Goals and options: `clean install package`
+   - *Output/After Deployment:*
+      [root@jenkins target]# pwd
+      /var/lib/jenkins/workspace/First_Maven_Project_Hello_World/webapp/target
+      [root@jenkins target]# ls -ltr *.war
+      -rw-r--r-- 1 jenkins jenkins 2527 Oct 28 10:13 webapp.war
